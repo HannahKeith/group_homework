@@ -12,8 +12,8 @@
       <input type="text" placeholder="Bird" ng-model="ctrl.createForm.type">
       <input type="submit" value="Add Bird">
     </form>
-    <div class="display">
-      {{ctrl.birds}}
+    <div class="display" ng-repeat="birds in ctrl.birds">
+      {{birds.type}}
     </div>
   </body>
 </html>
