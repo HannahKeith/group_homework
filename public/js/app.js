@@ -8,11 +8,12 @@ app.controller('MainController', ['$http', function($http){
   this.createBird = () => {
     $http({
       method: 'POST',
-      url: '/',
+      url: '/birds/',
       data: this.createForm
     }).then((response) => {
-      this.createForm = {},
+      console.log(this.birds);
       this.birds.unshift(response.data)
+      this.createForm = {}
     }, (error) => {
       console.log(error);
     })
@@ -21,7 +22,7 @@ app.controller('MainController', ['$http', function($http){
   this.getBirds = () => {
     $http({
       method: 'GET',
-      url: '/'
+      url: '/birds/'
     }).then(response => {
       this.birds = response.data
     }, error => {

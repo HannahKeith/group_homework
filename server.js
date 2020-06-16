@@ -6,13 +6,13 @@ const Birds = require('./models/birds.js')
 app.use(express.json());
 app.use(express.static('public'));
 
-app.post('/', (req, res) => {
+app.post('/birds/', (req, res) => {
   Birds.create(req.body, (err, createdBird) => {
     res.json(createdBird);
   })
 })
 
-app.get('/', (req, res) => {
+app.get('/birds/', (req, res) => {
   Birds.find({}, (err, foundBirds) => {
     res.json(foundBirds);
   })
