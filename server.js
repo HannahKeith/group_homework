@@ -1,9 +1,16 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const app = express();
+const Birds = require('./models/birds.js')
 
 app.use(express.json());
 app.use(express.static('public'));
+
+app.post('/', (req, res) => {
+  Birds.create(req.body, (err, createdBird) => {
+    res.json(createdBird);
+  })
+})
 
 app.get('/', (req, res) => {
   Birds.find({}, (err, foundBirds) => {

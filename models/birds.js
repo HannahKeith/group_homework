@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const birdSchema = new mongoose.Schema({
-  name: String
+  type: String
 });
 
 const Birds = mongoose.model('Bird', birdSchema);

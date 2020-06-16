@@ -9,7 +9,7 @@
   <body ng-controller="MainController as ctrl">
     <h3>Insert Bird Spotted:</h3>
     <form ng-submit="ctrl.createBird()">
-      <input type="text" placeholder="Bird">
+      <input type="text" placeholder="Bird" ng-model="ctrl.createForm.type">
       <input type="submit" value="Add Bird">
     </form>
   </body>
