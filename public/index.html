@@ -3,17 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title>Bird Finder</title>
+    <link rel="stylesheet" href="/app.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
   </head>
   <body ng-controller="MainController as ctrl">
+    <h1>Welcome to Bird Log</h1>
+    <div class="container">
     <h3>Insert Bird Spotted:</h3>
     <form ng-submit="ctrl.createBird()">
       <input type="text" placeholder="Bird" ng-model="ctrl.createForm.type">
       <input type="submit" value="Add Bird">
     </form>
-    <div class="display" ng-repeat="birds in ctrl.birds">
-      {{birds.type}}
     </div>
+    <div class="display" >
+      <table>
+      <tr ng-repeat="birds in ctrl.birds">
+        <td >{{birds.type}} </td>
+        <td class="delete-x" ng-click= 'ctrl.deleteBird(birds._id)'>X</td>
+      </tr>
+    </table>
+    </div>
+
+
+
+
   </body>
 </html>
