@@ -25,14 +25,7 @@ app.delete('/birds/:id', (req, res)=>{
         res.json(deletedBird);
     });
 });
-// DELETE
-// app.delete('/birds/:id',  (req, res) => {
-//    Birds.findByIdAndRemove(req.params.id)
-//     res.status(200).json(deleteBird)
-//   } catch (error) {
-//     res.status(400).json({error: error.message})
-//   }
-// })
+
 
 // EDIT
 app.put('/birds/:id', async (req, res) => {

@@ -33,16 +33,17 @@ app.controller('MainController', ['$http', function($http){
   this.getBirds()
 
   //delete function
-  this.deleteBird = (_id) => {
+  this.deleteBird = (id) => {
     $http({
       method: 'DELETE',
-      url: '/birds/' + _id
+      url: '/birds/' + id
     }).then (response => {
-      console.log('About to delete this bird')
-  //     const removeByIndex = this.birds.findIndex(bird => bird._id === id)
-  //   this.birds.splice(removeByIndex, 1)
-  // }, error => {
-  //     console.log(error)
+      console.log("I'm deleting now...")
+
+      const removeByIndex = this.birds.findIndex(bird => bird._id === id)
+    this.birds.splice(removeByIndex, 1)
+  }, error => {
+      console.log(error)
     })
 }
 
