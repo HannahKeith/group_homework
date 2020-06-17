@@ -8,8 +8,7 @@ h1 {
   text-align: center;
 }
 
-
-.delete-x{
+.delete-x:hover{
   color: red;
   cursor: pointer;
 }

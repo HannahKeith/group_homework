@@ -16,13 +16,17 @@
       <input type="submit" value="Add Bird">
     </form>
     </div>
-    <div class="display" ng-repeat="birds in ctrl.birds">
-
-      <tr ng-repeat= 'bird in ctrl.birds'>
-  <td >{{birds.type}} </td>
-  <td class="delete-x" ng-click= 'ctrl.deleteBird(bird._id)'>X</td>
-</tr>
-</table>
+    <div class="display" >
+      <table>
+      <tr ng-repeat="birds in ctrl.birds">
+        <td >{{birds.type}} </td>
+        <td class="delete-x" ng-click= 'ctrl.deleteBird(bird._id)'>X</td>
+      </tr>
+    </table>
     </div>
+
+
+
+
   </body>
 </html>
