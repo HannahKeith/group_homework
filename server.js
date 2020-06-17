@@ -32,12 +32,12 @@ app.put('/birds/:id', (req, res) => {
   Birds.findByIdAndUpdate(
     req.params.id,
     req.body,
-    {new: true},
+    {new:true},
     (err, updatedBird) => {
       res.json(updatedBird)
     }
   )
-})
+});
 
 
 

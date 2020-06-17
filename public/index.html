@@ -24,15 +24,15 @@
         <td>
           <a
           ng-if="$index !== ctrl.indexOfEditFormToShow"
-          ng-click="ctrl.indexOfEditFormToShow = $index; ctrl.updatedDescription=''">
+          ng-click="ctrl.indexOfEditFormToShow = $index; ctrl.updatedType=''">
           Edit Name
         </a>
         <form
         ng-click="ctrl.indexOfEditFormToShow"
         ng-if="$index === ctrl.indexOfEditFormToShow"
-        ng-submit="ctrl.editBird(bird)">
+        ng-submit="ctrl.editBird(birds)">
           <input type="text" ng-model="ctrl.updatedType" placeholder="name">
-          <input type="submit" value="Update Description">
+          <input type="submit" value="Update Bird">
         </form></td>
 
       </tr>

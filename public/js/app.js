@@ -5,6 +5,7 @@ app.controller('MainController', ['$http', function($http){
   this.birds = []
   this.bird = {}
   this.indexOfEditFormToShow = null;
+  const controller = this;
 
   this.createBird = () => {
     $http({
@@ -32,16 +33,17 @@ app.controller('MainController', ['$http', function($http){
   }
 
   //EDIT
-  this.editBird = function(bird){
+  this.editBird = function(birds){
+    console.log(birds._id);
     $http({
       method:'PUT',
-      url: '/birds/' + bird._id,
+      url: '/birds/' + birds._id,
       data: {
         type: this.updatedType
       }
     }).then(
       function(response){
-        this.getBirds();
+        controller.getBirds();
         controller.indexOfEditFormToShow = null
       }, function(error){
         console.log(error);
