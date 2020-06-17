@@ -6,17 +6,46 @@ const Birds = require('./models/birds.js')
 app.use(express.json());
 app.use(express.static('public'));
 
+//create route
 app.post('/birds/', (req, res) => {
   Birds.create(req.body, (err, createdBird) => {
     res.json(createdBird);
   })
 })
 
+//Show route
 app.get('/birds/', (req, res) => {
   Birds.find({}, (err, foundBirds) => {
     res.json(foundBirds);
   })
 })
+
+// DELETE
+app.delete('/birds/:id', async (req, res) => {
+  try {
+    const deleteBird = await Birds.findByIdAndRemove(req.params.id)
+    res.status(200).json(deleteBird)
+  } catch (error) {
+    res.status(400).json({error: error.message})
+  }
+})
+
+// EDIT
+app.put('/birds/:id', async (req, res) => {
+  try {
+    const updateBird = await Birds.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    res.status(200).json(updateBird)
+  } catch (error) {
+    res.status(400).json({error: error.message})
+  }
+})
+
+
+
+
+
+
+
 
 mongoose.connect('mongodb://localhost:27017/birds', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
