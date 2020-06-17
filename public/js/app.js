@@ -4,6 +4,7 @@ app.controller('MainController', ['$http', function($http){
   this.createBird = {}
   this.birds = []
   this.bird = {}
+  this.indexOfEditFormToShow = null;
 
   this.createBird = () => {
     $http({
@@ -29,6 +30,9 @@ app.controller('MainController', ['$http', function($http){
       console.log(error);
     })
   }
+
+
+  
 
   this.getBirds()
 
