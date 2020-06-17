@@ -20,7 +20,7 @@
       <table>
       <tr ng-repeat="birds in ctrl.birds">
         <td >{{birds.type}} </td>
-        <td class="delete-x" ng-click= 'ctrl.deleteBird(bird._id)'>X</td>
+        <td class="delete-x" ng-click= 'ctrl.deleteBird(birds._id)'>X</td>
       </tr>
     </table>
     </div>
