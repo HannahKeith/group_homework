@@ -21,7 +21,20 @@
       <tr ng-repeat="birds in ctrl.birds">
         <td >{{birds.type}} </td>
         <td class="delete-x" ng-click= 'ctrl.deleteBird(birds._id)'>X</td>
-        
+        <td>
+          <a
+          ng-if="$index !== ctrl.indexOfEditFormToShow"
+          ng-click="ctrl.indexofEditFormToShow = $index; ctrl.updatedType=">
+          Edit Name
+        </a>
+        <form
+        ng-click="ctrl.indexOfEditFormToShow"
+        ng-if="$index === ctrl.indexOfEditFormToShow"
+        ng-submit="ctrl.editBird(bird)">
+          <input type="text" ng-model="ctrl.updatedType" placeholder="name">
+          <input type="submit" value="Update Description">
+        </form></td>
+
       </tr>
     </table>
     </div>
