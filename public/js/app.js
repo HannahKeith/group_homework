@@ -31,8 +31,23 @@ app.controller('MainController', ['$http', function($http){
     })
   }
 
-
-  
+  //EDIT
+  this.editBird = function(bird){
+    $http({
+      method:'PUT',
+      url: '/birds/' + bird._id,
+      data: {
+        type: this.updatedType
+      }
+    }).then(
+      function(response){
+        this.getBirds();
+        controller.indexOfEditFormToShow = null
+      }, function(error){
+        console.log(error);
+      }
+    )
+  }
 
   this.getBirds()
 
@@ -50,6 +65,8 @@ app.controller('MainController', ['$http', function($http){
       console.log(error)
     })
 }
+
+
 
 
 
