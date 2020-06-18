@@ -28,14 +28,16 @@ app.delete('/birds/:id', (req, res)=>{
 
 
 // EDIT
-app.put('/birds/:id', async (req, res) => {
-  try {
-    const updateBird = await Birds.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    res.status(200).json(updateBird)
-  } catch (error) {
-    res.status(400).json({error: error.message})
-  }
-})
+app.put('/birds/:id', (req, res) => {
+  Birds.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {new:true},
+    (err, updatedBird) => {
+      res.json(updatedBird)
+    }
+  )
+});
 
 
 
