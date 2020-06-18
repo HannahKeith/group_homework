@@ -8,6 +8,9 @@
     <script src="js/app.js" charset="utf-8"></script>
   </head>
   <body ng-controller="MainController as ctrl">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+</style>
     <h1>Welcome to Bird Log</h1>
     <div class="container">
     <h3>Insert Bird Spotted:</h3>
@@ -22,7 +25,7 @@
         <td >{{birds.type}} </td>
         <td class="delete-x" ng-click= 'ctrl.deleteBird(birds._id)'>X</td>
         <td>
-          <a
+          <a class="edit-cell"
           ng-if="$index !== ctrl.indexOfEditFormToShow"
           ng-click="ctrl.indexOfEditFormToShow = $index; ctrl.updatedType=''">
           Edit Name
