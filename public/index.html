@@ -25,7 +25,7 @@
         <td >{{birds.type}} </td>
         <td class="delete-x" ng-click= 'ctrl.deleteBird(birds._id)'>X</td>
         <td>
-          <a
+          <a class="edit-cell"
           ng-if="$index !== ctrl.indexOfEditFormToShow"
           ng-click="ctrl.indexOfEditFormToShow = $index; ctrl.updatedType=''">
           Edit Name
